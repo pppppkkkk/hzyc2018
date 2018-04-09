@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+	<mapper namespace="chenggong.mapper.FangyuanMapper">
+		<insert id="insertFangyuan" parameterType="Fangyuan">
+			insert into fangyuan values(#{fangshi},#{xiaoqu},#{menpai},#{mianji},#{zujin},#{tupian},#{lianxi})
+		</insert>
+		
+		
+		<insert id="querenshenhe" parameterType="Fangyuan">
+			insert into fang values(#{fangshi},#{xiaoqu},#{menpai},#{mianji},#{zujin},#{tupian},#{lianxi})
+		</insert>
+		
+		
+		
+		
+		<!-- 查询数据 -->
+		<select id="queryFangyuan" resultType="Fangyuan">
+			select * from fangyuan
+		</select>
+		
+		
+		<select id="SelectFangyuanByXiaoqu" parameterType="String" resultType="Fangyuan">
+			select * from fangyuan where xiaoqu = #{xiaoqu}
+		</select>
+		
+		
+		
+		<select id="selectFangyuanByXiaoqu" parameterType="String" resultType="Fangyuan">
+			select * from fangyuan where xiaoqu = #{xiaoqu}
+		</select>
+		
+		<!-- 修改数据 -->
+		<update id="updateFangyuanByXiaoqu" parameterType="Fangyuan">
+			update fangyuan set fangshi = #{fangshi} , menpai = #{menpai} , mianji = #{mianji}  , zujin = #{zujin} , tupian = #{tupian} , lianxi = #{lianxi} where xiaoqu = #{xiaoqu}
+		</update>
+		
+		
+		
+		<delete id="deleteFangyuanByXiaoqu">
+			delete from fangyuan where xiaoqu = #{xiaoqu}
+		</delete> 
+	</mapper>

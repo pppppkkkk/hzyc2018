@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+	<mapper namespace="chenggong.mapper.RentHouseMapper">
+		
+		
+		<!-- 查询数据 -->
+		<select id="queryRentHouse" resultType="RentHouse">
+			select * from qiuzu
+		</select>
+		<select id="SelectQiuzuBySheng" resultType="RentHouse">
+			select * from qiuzu where sheng=#{sheng}
+		</select>
+		<select id="selectQiuzuBySheng" resultType="RentHouse">
+			select * from qiuzu where sheng=#{sheng}
+		</select>
+		<insert id="insertRentHouse" parameterType="RentHouse">
+			insert into qiuzu values(#{sheng},#{shi},#{zujin},#{huxing},#{mianji},#{sheshi},#{louceng},#{zhuangxiu})
+		</insert>
+		<!-- 修改数据 -->
+		<update id="updateRentHouse" parameterType="RentHouse">
+			update qiuzu set sheng = #{sheng} , shi = #{shi} , zujin = #{zujin}  , huxing = #{huxing} , mianji = #{mianji} , sheshi = #{sheshi}, louceng = #{louceng}, zhuangxiu = #{zhuangxiu} where sheng = #{sheng}
+		</update>
+		
+		<delete id="deleteQiuzuBySheng">
+			delete from qiuzu where sheng = #{sheng}
+		</delete> 
+		
+		
+		
+		
+		
+		
+		
+	</mapper>
